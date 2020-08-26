@@ -9,7 +9,7 @@ public class TC004_EditLead extends BaseClass {
 	
 	@Test
 	public void runEditLead(){
-		new LoginPage()
+		new LoginPage(driver)
 		.enterUserName()
 		.enterPassword()
 		.clickLoginButton()

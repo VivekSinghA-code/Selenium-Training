@@ -9,7 +9,7 @@ public class TC002_DeleteLead extends BaseClass {
 	
 	@Test
 	public void deleteLead() {
-		new LoginPage()
+		new LoginPage(driver)
 		.enterUserName()
 		.enterPassword()
 		.clickLoginButton()

@@ -11,7 +11,7 @@ public class TC001_CreateLead extends BaseClass {
 	@Test
 	public void runCreateLead() {
 		
-		new LoginPage()
+		new LoginPage(driver)
 		.enterUserName()
 		.enterPassword()
 		.clickLoginButton()

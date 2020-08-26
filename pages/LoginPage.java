@@ -1,25 +1,40 @@
 package pages;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
 import base.BaseClass;
 
 public class LoginPage extends BaseClass {
 	
+	public LoginPage(ChromeDriver driver) {
+		this.driver =driver;
+		PageFactory.initElements(driver, this);
+	}
+	
+	@FindBy(id="username")
+	WebElement eleUserName;
 	public LoginPage enterUserName() {
-		driver.findElementById("username").sendKeys("democsr2");
+		eleUserName.sendKeys("democsr2");
 		return this;
 	}
 
+	@FindBy(id="password")
+	WebElement elepassWord;
 	public LoginPage enterPassword() {
-		driver.findElementById("password").sendKeys("crmsfa");
+		elepassWord.sendKeys("crmsfa");
 		return this;
 		
 	}
 	
-	
-  public HomePage clickLoginButton() {
+	@FindBy(xpath="//input[@class='decorativeSubmit']")
+	WebElement eleLoginButton;
+	public HomePage clickLoginButton() {
 	  
-	  driver.findElementByXPath("//input[@class='decorativeSubmit']").click();
-	  return new HomePage();
+	eleLoginButton.click();
+	  return new HomePage(driver);
 	  
 	  
   }

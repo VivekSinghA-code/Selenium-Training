@@ -25,7 +25,7 @@ public class CreateLead extends BaseClass{
 	
 	public ViewLead clickCreateLeadButton() {
 		driver.findElementByXPath("//input[@name='submitButton']").click();
-		return new ViewLead();
+		return new ViewLead(driver);
 	}
 	
 	

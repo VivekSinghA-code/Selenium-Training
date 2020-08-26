@@ -1,32 +1,48 @@
 package pages;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
+
 import base.BaseClass;
 
 public class MyLeads extends BaseClass{
+	
+	public MyLeads (ChromeDriver driver) {
+		this.driver=driver;
+		PageFactory.initElements(driver, this);
+	}
 
-		
+
+@FindBy (how=How.XPATH, using="//a[text()='Create Lead']")	
+WebElement eleCreateLead;
 	public CreateLead clickCreateLead() {
-		
-		driver.findElementByXPath("//a[text()='Create Lead']").click();
+		eleCreateLead.click();
 		return new CreateLead();
 		
 	}
-	
+	@FindBy(xpath="//a[@href='/crmsfa/control/viewLead?partyId=10528']")
+	WebElement eleSelectLead;
 	public ViewLead selectLead() {
-	driver.findElementByXPath("//a[@href='/crmsfa/control/viewLead?partyId=10528']").click();
-	return new ViewLead();
+	eleSelectLead.click();
+	return new ViewLead(driver);
 	
 	}
 	
+	@FindBy (how=How.LINK_TEXT, using="Delete")
+	WebElement eleDeleteButton;
 	public ViewLead clickDeleteButton() {
-	driver.findElementByLinkText("Delete").click();
-	return new ViewLead();
+	eleDeleteButton.click();
+	return new ViewLead(driver);
 	}
 	
-	
+	@FindBy(how=How.LINK_TEXT, using ="Duplicate Lead")
+	WebElement eleDuplicateLeadButton;
 	public DuplicateLead clickDuplicateLeadButton() {
-		driver.findElementByLinkText("Duplicate Lead").click();
-		return new DuplicateLead();
+		eleDuplicateLeadButton.click();
+		return new DuplicateLead(driver);
 		}
 	
 	

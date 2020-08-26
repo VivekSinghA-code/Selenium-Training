@@ -9,7 +9,7 @@ public class TC003_DuplicateLead extends BaseClass{
 
 	@Test()
 	public void runduplicateLead() {
-		new LoginPage()
+		new LoginPage(driver)
 		.enterUserName()
 		.enterPassword()
 		.clickLoginButton()
